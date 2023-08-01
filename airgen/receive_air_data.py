@@ -3,11 +3,12 @@ from bs4 import BeautifulSoup
 import json
 import pandas as pd
 import pytz
-
+#The free API generates data on a 4-day basis at maximum for hourly aqi readings. 
+directory = 'path_to_current_data.csv'
 #generate url 
 api_key = '5ff66f09d6262436ec3b4fcabacd7f4a'
-start_unix = 
-end_unix = start_unix + 345600
+start_unix = #give start date in UNIX format. 
+end_unix = start_unix + 345600 #345600 seconds later => end of 4-day window. Run again after 4 days.
 url_prefix = f"https://api.openweathermap.org/data/2.5/air_pollution/history?lat=28&lon=77&start={start_unix}&end={end_unix}&appid={api_key}"
 #Fetch the content from the URL
 url = "YOUR_URL_HERE"  # Replace with your URL
@@ -42,5 +43,6 @@ for point in data_points:
         'day': dt.day
     })
 df = pd.DataFrame(formatted_data)
+df = pd.concat([pd.read_csv(directory), df])
 
-print(df)
+pd.to_csv(directory) #overwrites current data with concatenated data, adding 4 more days to the current AQI data. 
