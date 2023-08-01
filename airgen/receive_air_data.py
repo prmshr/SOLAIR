@@ -1,6 +1,3 @@
-# Step 1: Install the necessary libraries
-!pip install requests bs4
-
 import requests
 from bs4 import BeautifulSoup
 import json
