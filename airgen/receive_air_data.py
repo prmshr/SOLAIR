@@ -9,7 +9,8 @@ directory = 'path_to_current_data.csv'
 api_key = '5ff66f09d6262436ec3b4fcabacd7f4a'
 start_unix = #give start date in UNIX format. 
 end_unix = start_unix + 345600 #345600 seconds later => end of 4-day window. Run again after 4 days.
-url_prefix = f"https://api.openweathermap.org/data/2.5/air_pollution/history?lat=28&lon=77&start={start_unix}&end={end_unix}&appid={api_key}"
+lat,long=28,77 #for delhi area
+url_prefix = f"https://api.openweathermap.org/data/2.5/air_pollution/history?lat={lat}&lon={lon}&start={start_unix}&end={end_unix}&appid={api_key}"
 #Fetch the content from the URL
 url = "YOUR_URL_HERE"  # Replace with your URL
 response = requests.get(url)
