@@ -5,6 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 import pandas as pd
+import pytz
 
 #generate url 
 api_key = '5ff66f09d6262436ec3b4fcabacd7f4a'
