@@ -5,3 +5,6 @@ scikit-learn
 pandasql
 pytz
 datetime
+requests
+bs4
+json
