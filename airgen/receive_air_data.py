@@ -8,8 +8,9 @@ import pandas as pd
 
 #generate url 
 api_key = '5ff66f09d6262436ec3b4fcabacd7f4a'
-url_prefix = 'https://api.openweathermap.org/data/2.5/air_pollution/history?lat=28&lon=77'
-start, end = '&start=1689416506&end=1689502906&appid='
+start_unix = 
+end_unix = start_unix + 345600
+url_prefix = f"https://api.openweathermap.org/data/2.5/air_pollution/history?lat=28&lon=77&start={start_unix}&end={end_unix}&appid={api_key}"
 #Fetch the content from the URL
 url = "YOUR_URL_HERE"  # Replace with your URL
 response = requests.get(url)
