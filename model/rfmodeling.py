@@ -20,6 +20,7 @@ def build_cats(df):
   df=df.copy()
   catv = 'Weather Condition Code' #variable col name
   # one dummy variable should be dropped to avoid multicollinearity
+  if catv not in df.columns: return df
   codes=pd.get_dummies(df[catv],drop_first=True)
   df = df.drop(catv,axis=1)
   df=pd.concat([df,codes],axis=1)
@@ -105,7 +106,7 @@ def plot_rf(df):
   feature_importance = reg.feature_importances_
 
   # Get feature names
-  feature_names = x.columns  # Assuming X is your feature matrix
+  feature_names = x.columns  # Assuming X is feature matrix
   print('num feature names: ' + str(len(x.columns)))
 
   # Sort feature importances in descending order
